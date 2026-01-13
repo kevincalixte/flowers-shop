@@ -1,23 +1,30 @@
-// routeur => pointe vers les views
-
 <?php
 
 require_once "includes/functions.php";
-// Définition des routes
-$routes = [
-        'login' => 'views/login.php',
-        'admin' => 'views/admin.php',
-        'employe' => 'views/employe.php',
-        'dashboard' => 'controllers/dashboard.php',
-        '404' => 'views/404.php',
-];
 
-// Récupération de la route lors du chargement de la page
-$page = $_GET["page"] ?? "login";
-
-// Routage
-if (!array_key_exists($page, $routes)) {
-    redirect($routes['404']);
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
 }
 
-include($routes[$page]);
+// Sécurité : liste blanche des pages
+$routes = [
+    'login' => 'views/login.php',
+    'admin' => 'controllers/dashboard.php',  // MVC : controller pour admin
+    'employe' => 'views/employe.php',
+    'dashboard' => 'controllers/dashboard.php',
+    '404' => 'views/404.php',
+];
+
+$page = $_GET["page"] ?? "login";
+
+// Sécurité : verifie que la page existe dans $routes
+if (!array_key_exists($page, $routes)) {
+    $page = '404';
+}
+
+// Sécurité : verifie si l'utilisateur est connecté avant d'acceder aux pages sur la liste blanche
+if (!isset($_SESSION['user_id']) && $page !== 'login' && $page !== '404') {
+    redirect('index.php?page=login');
+}
+
+require_once $routes[$page];

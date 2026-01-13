@@ -14,5 +14,7 @@ try {
     ];
     $pdo = new PDO($dsn, $dbuser, $dbpass, $options);
 } catch (PDOException $e) {
-    die("Erreur de connexion à la base de donnée : " . $e->getMessage());
+    // Sécurité : log serveur, contenu sensible
+    error_log($e->getMessage()); 
+    die("Erreur de connexion à la base de données. Contactez l'administrateur.");
 }
