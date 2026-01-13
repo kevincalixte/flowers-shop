@@ -3,7 +3,7 @@
 $dbhost = "localhost";
 $dbname = "flowers_shop";
 $dbuser = "root";
-$dbpass = "";
+$dbpass = "1234";
 $dbcharset = "utf8mb4";
 
 try {
