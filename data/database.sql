@@ -35,7 +35,8 @@ CREATE TABLE tasks
     status      ENUM(
         'A faire',
         'En cours',
-        'Terminé'
+        'Terminé',
+        'A réassigner'
     ) DEFAULT 'A faire',
     created_at  DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (created_by) REFERENCES users (id),
