@@ -1,7 +1,3 @@
-
-// formulaire de connexion
-//ajout du formulaire de connexion
-
 <?php require_once __DIR__ . '/../controllers/auth.php'; ?>
 
 <!DOCTYPE html>
@@ -44,7 +40,8 @@
                     required
             >
         </div>
-
+        
+        <!-- Optionnel/Sécurité : token CSRF/input hidden -->
         <input type="submit" value="Se connecter">
 
     </form>

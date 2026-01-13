@@ -1,5 +1,3 @@
-// fonctions générales (bug/debug)
-
 <?php
 //Redirige vers la page renseignée
 function redirect($url)
