@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Admin-Tasks</title>
+    <title>Administration - Tâches</title>
 </head>
 
 <body>
@@ -16,12 +16,12 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
+                <th>Titre</th>
                 <th>Description</th>
-                <th>Created By</th>
-                <th>Assigned To</th>
-                <th>Status</th>
-                <th>Created At</th>
+                <th>Créé par</th>
+                <th>Assigné à</th>
+                <th>Statut</th>
+                <th>Date de création</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -43,17 +43,19 @@
                             <td><?= htmlspecialchars($task["title"]) ?></td>
                             <td><?= htmlspecialchars($task["description"]) ?></td>
                             <td><?= htmlspecialchars($task["created_by"]) ?></td>
-
-                            
                             <td><?= htmlspecialchars($task["assigned_to"]) ?></td>
                             <td>
                                 <form action="" method="post">
                                     <input type="hidden" name="task_id" value="<?= (int)$task["id"] ?>">
                                     <select name="status">
-                                        <option value="<?= htmlspecialchars($task["status"]) ?>"><?= htmlspecialchars($task["status"]) ?></option>
+                                        <option value="<?= htmlspecialchars($task["status"]) ?>">
+                                            <?= htmlspecialchars($task["status"]) ?>
+                                        </option>
                                         <?php foreach ($selectedTasks as $selectedTask) {
                                             if ($task["status"] !== $selectedTask) { ?>
-                                                <option value="<?= htmlspecialchars($selectedTask) ?>"><?= htmlspecialchars($selectedTask) ?></option>
+                                                <option value="<?= htmlspecialchars($selectedTask) ?>">
+                                                    <?= htmlspecialchars($selectedTask) ?>
+                                                </option>
                                         <?php }
                                         } ?>
                                     </select>
@@ -61,13 +63,12 @@
                                 </form>
                             </td>
                             <td><?= htmlspecialchars($task["created_at"]) ?></td>
-                            <!-- Sécurité : à améliorer via GET + token CSRF ? -->
                             <td>
-                                <a href="edit_task.php?id=<?= (int)($task["id"]) ?>" class="btn">Modify</a>
+                                <a href="edit_task.php?id=<?= (int)($task["id"]) ?>" class="btn">Modifier</a>
                                 <a href="delete_task.php?id=<?= (int)($task["id"]) ?>"
                                     class="btn"
-                                    onclick="return confirm('Are you sure you want to delete this task?');">
-                                    Delete
+                                    onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette tâche ?');">
+                                    Supprimer
                                 </a>
                             </td>
                         </tr>
