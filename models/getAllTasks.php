@@ -2,8 +2,8 @@
 
 function getAllTasks(PDO $pdo): array
 {
-    $stmt = $pdo->query("SELECT * FROM tasks");
+    $stmt = $pdo->prepare("SELECT * FROM tasks");
+    $stmt->execute();
     return $stmt->fetchAll();
 }
 
-// prepare/execute à la place de query
