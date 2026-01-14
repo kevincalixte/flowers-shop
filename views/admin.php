@@ -14,7 +14,7 @@
 
     <!-- Formulaire d'ajout de tâche -->
 
-    <script src="/php/flowers-shop/assets/js/script.js"></script>
+    <script src="/flowers-shop/assets/js/script.js"></script>
 
     <button id="openAddTask">Ajouter une tâche</button>
 
