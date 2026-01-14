@@ -12,6 +12,39 @@
 
     <a href="controllers/logout.php">Déconnexion</a>
 
+    <!-- Formulaire d'ajout de tâche -->
+
+    <script src="/php/flowers-shop/assets/js/script.js"></script>
+
+    <button id="openAddTask">Ajouter une tâche</button>
+
+    <div id="addTaskForm" style="display: none;">
+
+        <form method="post">
+
+            <input type="text" name="title" placeholder="Titre" required>
+            <input type="text" name="description" placeholder="Description">
+
+            <select name="assigned_to">
+
+                <option value="">Sélectionner un employé</option>
+
+                <?php
+                foreach ($users as $user) {
+                    echo '<option value="' . (int)$user['id'] . '">';
+                    echo htmlspecialchars($user['last_name']) . ' ' . htmlspecialchars($user['first_name']) . ' - ' . htmlspecialchars($user['role']);
+                    echo '</option>'; }
+                ?>
+
+            </select>
+
+            <button type="submit" name="add_task">Valider</button>
+            <button type="button" id="closeAddTask">Annuler</button>
+
+        </form>
+
+    </div>
+
     <?php include_once 'statistics.php'; ?>
 
     <table>
@@ -65,8 +98,13 @@
                                         <option value="<?= htmlspecialchars($task["status"]) ?>">
                                             <?= htmlspecialchars($task["status"]) ?>
                                         </option>
-                                    <?php }
-                                } ?>
+                                        <?php foreach ($selectedTasks as $selectedTask) {
+                                        if ($task["status"] !== $selectedTask) { ?>
+                                        <option value="<?= htmlspecialchars($selectedTask) ?>">
+                                            <?= htmlspecialchars($selectedTask) ?>
+                                        </option>
+                                        <?php }
+                                        } ?>
                             </select>
                             <input type="submit" value="Valider">
                         </form>
