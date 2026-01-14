@@ -3,14 +3,26 @@
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../models/getAllTasks.php';
+require_once __DIR__ . '/../models/addTask.php';
 require_once __DIR__ . '/../models/getAllUsers.php';
-
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
 
 if (!isset($_SESSION['user_role'], $_SESSION['user_id'])) {
     redirect('index.php?page=login');
+}
+
+// Traitement ajout de tâche
+if (isset($_POST['add_task'])) {
+    $title = trim($_POST['title'] ?? '');
+    $description = trim($_POST['description'] ?? '');
+    $assignedTo = (int) ($_POST['assigned_to'] ?? 0);
+    $createdBy = (int) $_SESSION['user_id'];
+
+    if ($title !== '' && $assignedTo > 0) {
+        addTask($pdo, $title, $description, $createdBy, $assignedTo);
+    }
+
+    header('Location: index.php?page=admin');
+    exit();
 }
 
 $tasks = getAllTasks($pdo);
