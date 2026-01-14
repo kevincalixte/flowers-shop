@@ -44,7 +44,17 @@
                             <td><?= htmlspecialchars($task["description"]) ?></td>
                             <td><?= htmlspecialchars($task["created_by"]) ?></td>
 
-                            
+                            <td>
+                                <form action="" method="post">
+                                    <input type="hidden" name="user_id" value="<?= (int)$task["id"] ?>">
+                                    <select name="">
+                                        
+                                    </select>
+
+                                </form>
+
+                            </td>
+
                             <td><?= htmlspecialchars($task["assigned_to"]) ?></td>
                             <td>
                                 <form action="" method="post">
