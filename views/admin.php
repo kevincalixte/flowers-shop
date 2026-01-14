@@ -65,33 +65,28 @@
                                         <option value="<?= htmlspecialchars($task["status"]) ?>">
                                             <?= htmlspecialchars($task["status"]) ?>
                                         </option>
-                                        <?php foreach ($selectedTasks as $selectedTask) {
-                                            if ($task["status"] !== $selectedTask) { ?>
-                                                <option value="<?= htmlspecialchars($selectedTask) ?>">
-                                                    <?= htmlspecialchars($selectedTask) ?>
-                                                </option>
-                                        <?php }
-                                        } ?>
-                                    </select>
-                                    <input type="submit" value="Valider">
-                                </form>
-                            </td>
+                                    <?php }
+                                } ?>
+                            </select>
+                            <input type="submit" value="Valider">
+                        </form>
+                    </td>
 
-                            <td><?= htmlspecialchars($task["created_at"]) ?></td>
-                            <td>
-                                <a href="edit_task.php?id=<?= (int)($task["id"]) ?>" class="btn">Modifier</a>
-                                <a href="delete_task.php?id=<?= (int)($task["id"]) ?>"
-                                    class="btn"
-                                    onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette tâche ?');">
-                                    Supprimer
-                                </a>
-                            </td>
-                        </tr>
-                    <?php endif; ?>
-                <?php } ?>
-            <?php } ?>
-        </tbody>
-    </table>
+                    <td><?= htmlspecialchars($task["created_at"]) ?></td>
+                    <td>
+                        <a href="edit_task.php?id=<?= (int)($task["id"]) ?>" class="btn">Modifier</a>
+                        <a href="delete_task.php?id=<?= (int)($task["id"]) ?>"
+                           class="btn"
+                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette tâche ?');">
+                            Supprimer
+                        </a>
+                    </td>
+                </tr>
+            <?php endif; ?>
+        <?php } ?>
+    <?php } ?>
+    </tbody>
+</table>
 
 </body>
 
