@@ -28,7 +28,7 @@ a {
     padding: 16px 22px;
     border-radius: 10px;
     margin-bottom: 18px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
     font-size: 17px;
     display: flex;
     align-items: center;
@@ -63,7 +63,7 @@ a[href*="logout"] {
     border-radius: 12px;
     min-width: 190px;
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
 }
 
 .card h2 {
@@ -83,7 +83,7 @@ a[href*="logout"] {
 
 .add-task {
     display: inline-block;
-    margin: 5px 0 20px 0;   
+    margin: 5px 0 20px 0;
     padding: 10px 20px;
     background-color: #00aaff;
     border-radius: 8px;
@@ -103,7 +103,7 @@ table {
     background-color: #1f1f1f;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
 }
 
 thead {
@@ -132,7 +132,8 @@ tbody tr:hover {
 td form {
     display: inline-flex;
     align-items: center;
-    gap: 12px; /* select + valider */
+    gap: 12px;
+    /* select + valider */
 }
 
 /* Select */
@@ -175,7 +176,7 @@ td:last-child .btn {
     border-radius: 6px;
     font-size: 13px;
     font-weight: bold;
-    margin: 0 8px;          
+    margin: 0 8px;
 }
 
 td:last-child .btn:first-child {
@@ -194,4 +195,30 @@ td:last-child .btn:hover {
 td[colspan] {
     color: #aaaaaa;
     font-style: italic;
+}
+
+/* ===== INPUT TEXT (Titre / Description) ===== */
+
+input[type="text"] {
+    background-color: #2a2a2a;   
+    color: #ffffff;              
+    border: 1px solid #444444;
+    padding: 6px 8px;
+    border-radius: 5px;
+}
+
+/* placeholder (Titre / Description) */
+input[type="text"]::placeholder {
+    color: #aaaaaa;
+}
+
+
+/* ===== ESPACEMENT FORM AJOUT TÂCHE ===== */
+
+#addTaskForm {
+    margin-top: 20px;
+}
+
+#addTaskForm form {
+    margin-top: 10px;
 }
