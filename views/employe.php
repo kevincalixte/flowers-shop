@@ -46,6 +46,7 @@
                                     <option value="A faire" <?= $task['status'] === 'A faire' ? 'selected' : '' ?>>À faire</option>
                                     <option value="En cours" <?= $task['status'] === 'En cours' ? 'selected' : '' ?>>En cours</option>
                                     <option value="Terminé" <?= $task['status'] === 'Terminé' ? 'selected' : '' ?>>Terminé</option>
+                                    <option value="À réassigner" <?= $task['status'] === 'À réassigner' ? 'selected' : '' ?>>À réassigner</option>
                                 </select>
                                 <button type="submit">Valider</button>
                             </form>
