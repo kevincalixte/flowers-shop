@@ -14,6 +14,15 @@
 
 <main class="container">
     <h1>Connexion</h1>
+<!-- Message d'erreur -->
+    <?php if (!empty($error)) : ?>
+    <p class="error-message">
+        <?= htmlspecialchars($error) ?>
+    </p>
+<?php endif; ?>
+
+   
+
 
     <form method="POST">
 
