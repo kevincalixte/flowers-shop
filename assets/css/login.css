@@ -102,3 +102,15 @@ input[type="submit"]:hover {
 input[type="submit"]:active {
     transform: translateY(0);
 }
+/* Error Message */
+.error-message {
+    color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.1);
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+
