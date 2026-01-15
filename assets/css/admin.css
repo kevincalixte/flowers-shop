@@ -144,6 +144,7 @@ select {
     border: 1px solid #444444;
     padding: 6px 8px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 /* Boutons valider Ajout une tache */
