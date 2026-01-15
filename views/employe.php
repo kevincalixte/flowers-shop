@@ -21,7 +21,7 @@
         <thead>
             <tr>
                 <th>Tâche</th>
-                <th>Description</th>
+                <th>Commentaire</th>
                 <th>Statut</th>
                 <th>Date de création</th>
                 <th>Validation</th>
