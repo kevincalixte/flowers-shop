@@ -18,7 +18,8 @@ function getAllTasksSorted($pdo, $sort = 'created_at', $dir = 'desc')
             'created_at' => 't.created_at',
             'modified_at' => 't.modified_at',
             'status' => 't.status',
-            'employee' => 'u.last_name'
+            'employee' => 'u.last_name',
+            'priority'    => 't.priority'
         ];
 
         $sort = strtolower(trim($sort));
@@ -32,7 +33,7 @@ function getAllTasksSorted($pdo, $sort = 'created_at', $dir = 'desc')
             $dir = 'desc';
         }
 
-        $sql .= ' ORDER BY ' . $allowedSorts[$sort] . ' ' . $dir;
+        $sql .= ' ORDER BY ' . $allowedSorts[$sort] . ' ' . $dir . ', t.id ' . $dir;
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
