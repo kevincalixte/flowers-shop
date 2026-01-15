@@ -1,14 +1,15 @@
 <?php
 
-function updateTask($pdo, $id, $title, $description, $assignedTo, $status) {
+function updateTask($pdo, $id, $title, $description, $assignedTo, $status, $priority) {
     try {
-        $sql = "UPDATE tasks SET title = ?, description = ?, assigned_to = ?, status = ?, modified_at = NOW() WHERE id = ?";
+        $sql = "UPDATE tasks SET title = ?, description = ?, assigned_to = ?, status = ?, priority = ?, modified_at = NOW() WHERE id = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             $title,
             $description,
             $assignedTo,
             $status,
+            $priority,
             $id
         ]);
     } catch (PDOException $e) {

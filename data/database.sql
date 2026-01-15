@@ -21,20 +21,20 @@ CREATE TABLE users (
     modified_at DATETIME NULL
 );
 -- Table des tâches : gestion des tâches assignées aux employés/responsable
-CREATE TABLE tasks
-(
-    id          INT AUTO_INCREMENT PRIMARY KEY,
-    title       VARCHAR(255) NOT NULL,
+CREATE TABLE tasks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
     description TEXT,
-    created_by  VARCHAR(50)          NOT NULL,
-    assigned_to INT          NOT NULL,
-    status      ENUM(
+    created_by VARCHAR(50) NOT NULL,
+    assigned_to INT NOT NULL,
+    status ENUM(
         'À faire',
         'En cours',
         'Terminé',
         'À réassigner'
-        ) DEFAULT 'À faire',
-    created_at  DATETIME DEFAULT CURRENT_TIMESTAMP,
+    ) DEFAULT 'À faire',
+    priority ENUM('Urgent', 'Non urgent') DEFAULT 'Non urgent',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     modified_at DATETIME NULL ON UPDATE CURRENT_TIMESTAMP
 );
 
@@ -124,51 +124,57 @@ INSERT INTO
         description,
         created_by,
         assigned_to,
-        status
+        status,
+        priority
     )
 VALUES (
         'Préparer bouquet Saint-Valentin',
         'Créer 20 bouquets de roses rouges pour la Saint-Valentin',
         'Lucas Petit',
         4,
-        'En cours'
+        'En cours',
+        'Non urgent'
     ),
     (
         'Inventaire magasin',
         'Faire l\'inventaire complet du stock de fleurs',
         'Lucas Petit',
         2,
-        'A faire'
+        'A faire',
+        'Non urgent'
     ),
     (
         'Livraison centre-ville',
         'Livrer les commandes du matin en centre-ville',
         'Lucas Petit',
         6,
-        'Terminé'
+        'Terminé',
+        'Urgent'
     ),
     (
         'Décoration mariage',
         'Préparer la décoration florale pour le mariage Martin',
         'Lucas Petit',
         4,
-        'En cours'
+        'En cours',
+        'Non urgent'
     ),
     (
         'Formation nouveau employé',
         'Former Sophie aux techniques de vente',
         'Lucas Petit',
         5,
-        'A faire'
+        'A faire',
+        'Non urgent'
     ),
     (
         'Nettoyage vitrine',
         'Nettoyer et réorganiser la vitrine du magasin',
-    'Lucas Petit',
+        'Lucas Petit',
         3,
-        'Terminé'
+        'Terminé',
+        'Urgent'
     );
-
 
 -- Insertion des relations tâches-utilisateurs
 INSERT INTO
@@ -178,5 +184,5 @@ VALUES (1, 4), -- Jean travaille sur les bouquets Saint-Valentin
     (4, 4), -- Jean sur la décoration mariage
     (4, 5), -- Claire aide aussi sur la décoration
     (2, 2), -- Pierre fait l'inventaire
-    (2, 3); -- Sophie aide pour l'inventaire
-
+    (2, 3);
+-- Sophie aide pour l'inventaire

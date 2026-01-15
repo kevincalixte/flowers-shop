@@ -33,10 +33,11 @@ if (isset($_POST['update_task'])) {
     $title = trim($_POST['title'] ?? '');
     $description = trim($_POST['description'] ?? '');
     $assignedTo = (int) ($_POST['assigned_to'] ?? 0);
-    $status = trim($_POST['status'] ?? '');
+    $status = $_POST['status'] ?? '';
+    $priority = $_POST['priority'] ?? '';
 
     if ($taskId > 0 && $title !== '' && $assignedTo > 0 && $status !== '') {
-        updateTask($pdo, $taskId, $title, $description, $assignedTo, $status);
+        updateTask($pdo, $taskId, $title, $description, $assignedTo, $status, $priority);
     }
 
     redirect("index.php?page=admin");

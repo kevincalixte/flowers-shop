@@ -1,6 +1,7 @@
 <!-- // dashboard employés sur lequel ils pourront consulter et valider les tâches -->
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Dashboard Employé</title>
@@ -9,11 +10,12 @@
     <link rel="stylesheet" href="./assets/css/admin.css">
 
 </head>
+
 <body>
 
     <?php include_once 'welcome.php'; ?>
 
-        <a href="controllers/logout.php">Déconnexion</a>
+    <a href="controllers/logout.php">Déconnexion</a>
 
     <h1>Mes tâches</h1>
 
@@ -23,6 +25,7 @@
                 <th>Tâche</th>
                 <th>Commentaire</th>
                 <th>Statut</th>
+                <th>Priorité</th>
                 <th>Date de création</th>
                 <th>Validation</th>
             </tr>
@@ -34,6 +37,7 @@
                         <td><?= htmlspecialchars($task['title']) ?></td>
                         <td><?= htmlspecialchars($task['description']) ?></td>
                         <td><?= htmlspecialchars($task['status']) ?></td>
+                        <td><?= htmlspecialchars($task['priority']) ?></td>
                         <td><?= htmlspecialchars($task['created_at']) ?></td>
                         <td>
                             <form method="post" action="">
@@ -56,5 +60,5 @@
         </tbody>
     </table>
 </body>
-</html>
 
+</html>

@@ -58,6 +58,7 @@
                 <th>Créé par</th>
                 <th>Assigné à</th>
                 <th>Statut</th>
+                <th>Priorité</th>
                 <th>Date de création</th>
                 <th>Date de modification</th>
                 <th>Actions</th>
@@ -73,6 +74,10 @@
                         "En cours",
                         "Terminé",
                         "À reassigner"
+                    ];
+                    $priorityTasks = [
+                        "Urgent",
+                        "Non urgent"
                     ];
                     ?>
                     <?php if (is_numeric($task["id"])) : ?>
@@ -112,6 +117,17 @@
                                                 </option>
                                         <?php }
                                         } ?>
+                                    </select>
+
+                                </td>
+                                <!-- Select : priorité de la tâche -->
+                                <td>
+                                    <select name="priority">
+                                        <?php foreach ($priorityTasks as $priority) { ?>
+                                            <option value="<?= htmlspecialchars($priority) ?>" <?= ($task["priority"] ?? 'Non urgent') === $priority ? 'selected' : '' ?>>
+                                                <?= htmlspecialchars($priority) ?>
+                                            </option>
+                                        <?php } ?>
                                     </select>
 
                                 </td>
