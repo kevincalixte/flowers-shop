@@ -5,9 +5,9 @@ Les employés peuvent consulter leurs tâches et les valider.
 
 Ce projet a été fait dans le cadre de la formation Développeur Web et web mobiles au CEPPIC d'Isneauville - 2025 
 
-Mohammad HUSAINI 
-Juliette DEFRANCE
-Kévin CALIXTE
+Juliette DEFRANCE - Cheffe de projet
+Kévin CALIXTE - Backend
+Mohammad HUSAINI - Frontend
 
 Technologies utilisées : 
 - HTML
