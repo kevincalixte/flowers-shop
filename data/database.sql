@@ -175,14 +175,3 @@ VALUES (
         'Terminé',
         'Urgent'
     );
-
--- Insertion des relations tâches-utilisateurs
-INSERT INTO
-    tasks_users (task_id, user_id)
-VALUES (1, 4), -- Jean travaille sur les bouquets Saint-Valentin
-    (1, 3), -- Sophie aide aussi sur les bouquets
-    (4, 4), -- Jean sur la décoration mariage
-    (4, 5), -- Claire aide aussi sur la décoration
-    (2, 2), -- Pierre fait l'inventaire
-    (2, 3);
--- Sophie aide pour l'inventaire
