@@ -50,3 +50,7 @@ flowers-shop/
 │
 └── data/                          # Scripts SQL
     └── database.sql            
+
+# DIAGRAMME DE BASE DE DONNEE
+
+![alt text](diagramme%20base.drawio.png)
